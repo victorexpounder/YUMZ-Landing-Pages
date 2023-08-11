@@ -1,6 +1,6 @@
 .NavContainer{
     width: 100%;
-    
+    position: sticky;
     .navContent{
         display: flex;
         
@@ -140,6 +140,8 @@
     }
 
 }
+.draw{
+    background: transparent;
 
 .drawerContent {
     
@@ -148,6 +150,7 @@
     color: #fff; /* Set the text color */
     font-family: Arial, sans-serif;
     height: 100%;
+    
   
     ul {
       list-style-type: none;
@@ -169,5 +172,6 @@
         }
       }
     }
+}
 }
   

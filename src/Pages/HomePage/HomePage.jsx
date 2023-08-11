@@ -11,6 +11,7 @@ import Grow from '@mui/material/Grow';
 import Slide from '@mui/material/Slide';
 import Zoom from '@mui/material/Zoom';
 import Collapse from '@mui/material/Collapse';
+import { Link } from 'react-router-dom'
 export const HomePage = () => {
   const [checked, setChecked] = useState(false)
 
@@ -19,7 +20,7 @@ export const HomePage = () => {
   }, [])
   return (
     <div>
-        <NavBar/>
+        <NavBar page={'index'} />
         <div className="homeContent">
         <Fade in={checked} style={{ transformOrigin: '0 0 0' }}
     {...(checked ? { timeout: 1500 } : {})}>
@@ -48,9 +49,11 @@ export const HomePage = () => {
           {/* buttons */}
 
           <div className="buttonsContainer">
+          <Link to={'/login'} style={{textDecoration: "none", color:'#fff'}}>
             <div className="getStarted">
               <p>Get Started</p>
             </div>
+          </Link>
             <div className="watch">
               <div className="icon">
               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">

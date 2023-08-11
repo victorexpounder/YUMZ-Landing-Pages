@@ -5,7 +5,8 @@ import Slide from '@mui/material/Slide';
 import Drawer from '@mui/material/Drawer';
 import SwipeableDrawer from '@mui/material/SwipeableDrawer';
 import Box from '@mui/material/Box';
-export const NavBar = () => {
+import { Link } from 'react-router-dom'
+export const NavBar = ({page}) => {
     const [checked, setChecked] = useState(false);
     const [drawerOpen, setDrawerOpen] = useState(false);
 
@@ -33,26 +34,38 @@ export const NavBar = () => {
 
             <div className="navLinks">
                 <ul>
+                <Link to={'/'} style={{textDecoration: "none", color:'#333333'}}>
+
                     <li>
-                        <p className='red'>Why Yumz?</p>
+                        <p className={page === 'index'? 'red' :'' }>Why Yumz?</p>
                         <div className="dot">
+                        {page === 'index'? 
                         <svg xmlns="http://www.w3.org/2000/svg" width="6" height="6" viewBox="0 0 6 6" fill="none">
                         <circle cx="3" cy="3" r="3" fill="#EB5757"/>
                         </svg>
+                        :
+                        ''
+                    }
                         </div>
                     </li>
+                    </Link>
+
+                    <Link to={'/services'} style={{textDecoration: "none", color:'#333333'}}>
                     <li>
-                        <p>Services</p>
-                        <div className="dot"></div>
+                        <p className={page === 'services'? 'red' :'' }>Services</p>
+                        <div className="dot">
+                        {page === 'services'? 
+                        <svg xmlns="http://www.w3.org/2000/svg" width="6" height="6" viewBox="0 0 6 6" fill="none">
+                        <circle cx="3" cy="3" r="3" fill="#EB5757"/>
+                        </svg>
+                        :
+                        ''
+                        }
+                        </div>
                     </li>
-                    <li>
-                        <p>Menu</p>
-                        <div className="dot"></div>
-                    </li>
-                    <li>
-                        <p>Contact</p>
-                        <div className="dot"></div>
-                    </li>
+                    </Link>
+
+                    
                 </ul>
             </div>
 
@@ -65,7 +78,8 @@ export const NavBar = () => {
             <path d="M13.6663 10.0834V5.50004C13.6663 4.52758 13.28 3.59495 12.5924 2.90732C11.9048 2.21968 10.9721 1.83337 9.99967 1.83337C9.02721 1.83337 8.09458 2.21968 7.40695 2.90732C6.71932 3.59495 6.33301 4.52758 6.33301 5.50004V10.0834" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
             </div>
-
+            
+            <Link to={'/login'} style={{textDecoration: "none", color:'#fff'}}>
             <div className="loginButton">
             <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 17 17" fill="none">
             <path d="M13.5 15.5H7.5C7.23478 15.5 6.98043 15.3946 6.79289 15.2071C6.60536 15.0196 6.5 14.7652 6.5 14.5V13H7.5V14.5H13.5V2.5H7.5V4H6.5V2.5C6.5 2.23478 6.60536 1.98043 6.79289 1.79289C6.98043 1.60536 7.23478 1.5 7.5 1.5H13.5C13.7652 1.5 14.0196 1.60536 14.2071 1.79289C14.3946 1.98043 14.5 2.23478 14.5 2.5V14.5C14.5 14.7652 14.3946 15.0196 14.2071 15.2071C14.0196 15.3946 13.7652 15.5 13.5 15.5Z" fill="#F2F2F2" stroke="#F2F2F2" stroke-width="0.5"/>
@@ -74,6 +88,7 @@ export const NavBar = () => {
 
             <p>Login</p>
             </div>
+            </Link>
 
             <button id="toggle-button" class="toggleButton" onClick={handleDrawerToggle}>
                 <svg id="toggle-menu-open" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24"  fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" className='toggle'>
@@ -86,7 +101,7 @@ export const NavBar = () => {
             </button>
 
             {/* Material UI Drawer */}
-          <SwipeableDrawer anchor="right" open={drawerOpen} onClose={handleDrawerToggle}  >
+          <SwipeableDrawer anchor="right" open={drawerOpen} onClose={handleDrawerToggle} onOpen={handleDrawerToggle} className='draw'>
             
           <Box
             sx={{ width: 250 }}
@@ -96,23 +111,23 @@ export const NavBar = () => {
           >
 
                 <ul >
+                <Link to={'/'} style={{textDecoration: "none", color:'#fff'}}>
                     <li>
                         <p className='red'>Why Yumz?</p>
                     </li>
+                </Link>    
+
+                <Link to={'/services'} style={{textDecoration: "none", color:'#fff'}}>
                     <li>
                         <p>Services</p>
                         
                     </li>
-                    <li>
-                        <p>Menu</p>
-                        
-                    </li>
-                    <li>
-                        <p>Contact</p>
-                    </li>
+                </Link>
+                <Link to={'/login'} style={{textDecoration: "none", color:'#fff'}}>
                     <li>
                         <p>Login</p>
                     </li>
+                    </Link>
                 </ul>
             </Box>
               
