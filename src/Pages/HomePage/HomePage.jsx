@@ -49,7 +49,7 @@ export const HomePage = () => {
           {/* buttons */}
 
           <div className="buttonsContainer">
-          <Link to={'/login'} style={{textDecoration: "none", color:'#fff'}}>
+          <Link to={'/signup'} style={{textDecoration: "none", color:'#fff'}}>
             <div className="getStarted">
               <p>Get Started</p>
             </div>

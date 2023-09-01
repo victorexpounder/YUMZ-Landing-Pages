@@ -9,6 +9,8 @@ import {
   } from "react-router-dom";
 import { Services } from "./Pages/ServicesPage/Services";
 import { Login } from "./Pages/Login/Login";
+import { SignUp } from "./Pages/SignUp/SignUp";
+
 
 function App(){
     return(
@@ -19,6 +21,8 @@ function App(){
                     <Route index element={<HomePage></HomePage>} />
                     <Route path="services" element={<Services></Services>} />
                     <Route path="login" element={<Login></Login>} />
+                    <Route path="signUp" element={<SignUp></SignUp>} />
+                    
                 </Route>
                 </Routes>
             </BrowserRouter>
